@@ -16,9 +16,10 @@ function inputChange(e) {
     return;
   }
   todoId += 1;
-  let li = `<li data-num=${todoId} class="list-item"><p data-span=${todoId}>${e.target.value}</p>
+  let li = `<li data-num=${todoId} class="list-item"><p data-span=${todoId}>${e.target.value}</p><div>
     <button type="button"  data-num=${todoId} class="delete">delete</button>
-    <button type="button" data-num=${todoId} class="selected">completed</button></li>`;
+    <button type="button" data-num=${todoId} class="selected">complete</button></div>
+    </li>`;
   list.insertAdjacentHTML("afterbegin", li);
   e.target.value = "";
 }

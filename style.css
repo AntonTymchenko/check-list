@@ -22,12 +22,11 @@ body {
 
 #list li {
   display: flex;
-  margin-bottom: 10px;
-  justify-content: space-evenly;
+  justify-content: space-between;
   cursor: pointer;
   align-items: center;
 }
-#list li span {
+#list li p {
   margin-right: 5px;
 }
 #list li button + button {
