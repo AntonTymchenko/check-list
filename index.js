@@ -49,6 +49,7 @@ function onTodoListClick(e) {
     li.appendChild(input);
     input.focus();
 
+    input.addEventListener("blur", blurInputHandler);
     input.addEventListener("keypress", keyPressInputHandler);
 
     li.classList.add("row-reverse");
@@ -57,6 +58,7 @@ function onTodoListClick(e) {
 
 function keyPressInputHandler(e) {
   if (e.key === "Enter") {
+    e.target.removeEventListener("blur", blurInputHandler);
     const todoCollection = document.querySelectorAll("li");
     const newCollection = [...todoCollection];
 
@@ -68,6 +70,19 @@ function keyPressInputHandler(e) {
     todoCollection[indx].childNodes[0].classList.remove("display-none");
     e.target.remove();
   }
+}
+function blurInputHandler(e) {
+  e.target.removeEventListener("keypress", keyPressInputHandler);
+  const todoCollection = document.querySelectorAll("li");
+  const newCollection = [...todoCollection];
+
+  let li = e.target.parentNode;
+  li.classList.remove("row-reverse");
+  let changeTodoText = e.target.value;
+  let indx = findTodoIndex(e.target.dataset.input, newCollection);
+  todoCollection[indx].childNodes[0].textContent = changeTodoText;
+  todoCollection[indx].childNodes[0].classList.remove("display-none");
+  e.target.remove();
 }
 
 function checkDuplicateTodo(text) {
