@@ -4,6 +4,9 @@ body {
   flex-direction: column;
   align-items: center;
 }
+#input {
+  padding: 5px 20px;
+}
 #input,
 #list {
   display: inline-block;
