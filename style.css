@@ -1,0 +1,42 @@
+body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#input,
+#list {
+  display: inline-block;
+}
+#list {
+  padding: 0;
+  list-style-type: none;
+}
+.completed {
+  text-decoration: line-through;
+  color: red;
+}
+
+#list li {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-evenly;
+  cursor: pointer;
+  align-items: center;
+}
+#list li span {
+  margin-right: 5px;
+}
+#list li button + button {
+  margin-left: 10px;
+}
+.delete {
+  margin-left: 10px;
+}
+.display-none {
+  display: none;
+}
+
+.row-reverse {
+  flex-direction: row-reverse;
+}
